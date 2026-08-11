@@ -3,17 +3,17 @@ import { MessageSquare, CreditCard } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const flipIn = {
-  initial: { opacity: 0, rotateX: -60, y: 20 },
-  whileInView: { opacity: 1, rotateX: 0, y: 0 },
+  initial: { opacity: 0, y: 30 },
+  whileInView: { opacity: 1, y: 0 },
   viewport: { once: true, margin: "-50px" },
-  transition: { duration: 0.8, ease: "easeOut" }
+  transition: { duration: 0.6, ease: "easeOut" }
 };
 
 const staggerContainer = {
   initial: { opacity: 0 },
   whileInView: { opacity: 1 },
   viewport: { once: true, margin: "-50px" },
-  transition: { staggerChildren: 0.2 }
+  transition: { staggerChildren: 0.1 }
 };
 
 export default function Spread5() {
