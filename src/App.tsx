@@ -1,4 +1,4 @@
-import React from 'react';
+
 import Spread1 from './components/Spread1';
 import Spread2 from './components/Spread2';
 import Spread3 from './components/Spread3';
