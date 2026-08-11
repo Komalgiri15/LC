@@ -1,0 +1,296 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&family=Open+Sans:wght@400;600&display=swap');
+
+:root {
+  --black: #111111;
+  --white: #FFFFFF;
+  --grey: #E5E5E5;
+  --dark-grey: #666666;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  background-color: #222; /* Darker bg behind the brochure */
+  color: var(--black);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  padding: 40px 20px;
+  gap: 40px;
+}
+
+h1, h2, h3, h4, .font-heading {
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+}
+
+/* Main Layout */
+.brochure-container {
+  width: 100%;
+  max-width: 1200px;
+  background-color: var(--grey);
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+  position: relative;
+}
+
+@media (max-width: 900px) {
+  .brochure-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Columns */
+.col {
+  padding: 40px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Column 1 - Black */
+.col-black {
+  background-color: var(--black);
+  color: var(--white);
+  padding: 0; /* Remove padding to allow image to touch edges */
+}
+
+.col-black-content {
+  padding: 40px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.img-top {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+  clip-path: polygon(0 0, 100% 0, 100% 85%, 50% 100%, 0 85%);
+  margin-bottom: 20px;
+}
+
+/* Using an organic tear-like clip path */
+.img-top-curve {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+  clip-path: ellipse(150% 100% at 50% 0%);
+  margin-bottom: 30px;
+}
+
+/* Typography styles matching the image */
+.title-main {
+  font-size: 2.5rem;
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 8px;
+  letter-spacing: 1px;
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  font-weight: 400;
+  margin-bottom: 40px;
+  letter-spacing: 2px;
+}
+
+.title-dark {
+  font-size: 2.2rem;
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 8px;
+  letter-spacing: 1px;
+}
+
+.subtitle-dark {
+  font-size: 1rem;
+  font-weight: 400;
+  margin-bottom: 40px;
+  letter-spacing: 1px;
+  color: var(--dark-grey);
+}
+
+.title-huge {
+  font-size: 3.5rem;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -1px;
+}
+
+.subtitle-huge {
+  font-size: 1.8rem;
+  font-weight: 400;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+}
+
+.text-body {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+/* Contact Info */
+.contact-info {
+  margin-top: auto;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: #aaa;
+}
+
+/* Circle Element */
+.circle-quote {
+  background-color: var(--black);
+  color: var(--white);
+  border-radius: 50%;
+  width: 250px;
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 30px;
+  position: absolute;
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+}
+
+.circle-quote p {
+  font-size: 0.95rem;
+  font-style: italic;
+  line-height: 1.4;
+}
+
+.quote-mark {
+  font-size: 4rem;
+  font-family: Georgia, serif;
+  line-height: 0.5;
+  margin-bottom: 10px;
+}
+
+/* Top Right Icon */
+.icon-circle {
+  background-color: var(--black);
+  color: var(--white);
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 40px;
+  right: 40px;
+}
+
+/* Bottom Right Slanted Image */
+.img-bottom-slant {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  clip-path: polygon(0 30%, 100% 0, 100% 100%, 0% 100%);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+/* Extra decorative shapes */
+.shape-blob {
+  position: absolute;
+  top: 80px;
+  left: -50px;
+  width: 150px;
+  height: auto;
+  z-index: 1;
+}
+
+.shape-circle-outline {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  border: 2px solid var(--white);
+  border-radius: 50%;
+  opacity: 0.2;
+  top: -50px;
+  right: -100px;
+}
+
+/* Right Column special layout */
+.col-right {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 320px; /* Space for the bottom image */
+  text-align: right;
+  align-items: flex-end;
+}
+
+.col-right .title-huge {
+  margin-top: 100px;
+}
+
+.divider-line {
+  width: 80%;
+  height: 2px;
+  background-color: var(--dark-grey);
+  margin: 20px 0;
+}
+
+.col-right .text-body {
+  text-align: right;
+  max-width: 80%;
+}
+
+.text-center {
+  text-align: center;
+}
+
+/* Lists styling for Page 4 */
+.role-list {
+  list-style: none;
+  margin-bottom: 30px;
+}
+
+.role-list li {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  border-bottom: 1px solid #ccc;
+  padding: 8px 0;
+  font-weight: 600;
+}
+
+.role-list li:last-child {
+  border-bottom: none;
+}
+
+.section-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  color: var(--dark-grey);
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+/* Middle Image styles */
+.img-middle-center {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0.4;
+  z-index: 0;
+}
