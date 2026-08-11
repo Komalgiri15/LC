@@ -20,16 +20,16 @@ export default function Spread1() {
   return (
     <motion.div 
       className="brochure-container"
-      initial={{ y: '30vh', opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 1.2, ease: "easeOut" }}
+      initial={{ y: '15vh', opacity: 0, rotateX: 15 }}
+      animate={{ y: 0, opacity: 1, rotateX: 0 }}
+      transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
     >
       {/* COLUMN 1 (Left - Black) */}
       <motion.div 
         className="col col-black"
-        initial={{ rotateY: 110, transformOrigin: 'right', opacity: 0.3 }}
-        animate={{ rotateY: 0, opacity: 1 }}
-        transition={{ duration: 1.8, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
+        initial={{ rotateY: 90, transformOrigin: 'right', filter: 'brightness(0.3)' }}
+        animate={{ rotateY: 0, filter: 'brightness(1)' }}
+        transition={{ duration: 1.5, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
         style={{ zIndex: 10 }}
       >
         <motion.img 
@@ -76,9 +76,9 @@ export default function Spread1() {
       {/* COLUMN 2 (Middle - Light Grey) */}
       <motion.div 
         className="col"
-        initial={{ opacity: 0, scale: 0.95 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 1.2, delay: 0.6, ease: "easeOut" }}
+        initial={{ filter: 'brightness(0.3)' }}
+        animate={{ filter: 'brightness(1)' }}
+        transition={{ duration: 1.2, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
       >
         <motion.svg 
           initial={{ scale: 0.8, opacity: 0 }}
@@ -132,9 +132,9 @@ export default function Spread1() {
       {/* COLUMN 3 (Right - Light Grey) */}
       <motion.div 
         className="col col-right"
-        initial={{ rotateY: -110, transformOrigin: 'left', opacity: 0.3 }}
-        animate={{ rotateY: 0, opacity: 1 }}
-        transition={{ duration: 1.8, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
+        initial={{ rotateY: -90, transformOrigin: 'left', filter: 'brightness(0.3)' }}
+        animate={{ rotateY: 0, filter: 'brightness(1)' }}
+        transition={{ duration: 1.5, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
         style={{ zIndex: 10 }}
       >
         <motion.div 
