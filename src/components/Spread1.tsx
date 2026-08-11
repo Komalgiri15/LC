@@ -1,14 +1,25 @@
-
+import React, { useState, useEffect } from 'react';
 import { Activity } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 export default function Spread1() {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 900);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
   return (
     <motion.div 
       className="brochure-container"
-      initial={{ y: '15vh', opacity: 0, rotateX: 20, backgroundColor: '#222222', boxShadow: 'none' }}
-      animate={{ y: 0, opacity: 1, rotateX: 0, backgroundColor: '#E5E5E5', boxShadow: '0 20px 40px rgba(0, 0, 0, 0.4)' }}
-      transition={{ 
+      initial={isMobile ? { opacity: 0, y: 50, backgroundColor: '#E5E5E5', boxShadow: '0 20px 40px rgba(0,0,0,0.4)' } : { y: '15vh', opacity: 0, rotateX: 20, backgroundColor: '#222222', boxShadow: 'none' }}
+      animate={isMobile ? { opacity: 1, y: 0 } : { y: 0, opacity: 1, rotateX: 0, backgroundColor: '#E5E5E5', boxShadow: '0 20px 40px rgba(0, 0, 0, 0.4)' }}
+      transition={isMobile ? { duration: 0.8, ease: "easeOut" } : { 
         duration: 1.5, 
         ease: [0.22, 1, 0.36, 1],
         backgroundColor: { delay: 3.0, duration: 0.8 },
@@ -18,10 +29,10 @@ export default function Spread1() {
       {/* COLUMN 1 (Left - Black - Folds OVER Right) */}
       <motion.div 
         className="col col-black"
-        initial={{ rotateY: 179.9, zIndex: 30 }}
-        animate={{ rotateY: 0, transitionEnd: { zIndex: 1 } }}
-        transition={{ duration: 1.6, delay: 3.0, ease: [0.25, 1, 0.4, 1] }}
-        style={{ transformOrigin: 'right', transformStyle: 'preserve-3d' }}
+        initial={isMobile ? { rotateY: 0, zIndex: 1 } : { rotateY: 179.9, zIndex: 30 }}
+        animate={isMobile ? { rotateY: 0 } : { rotateY: 0, transitionEnd: { zIndex: 1 } }}
+        transition={isMobile ? { duration: 0 } : { duration: 1.6, delay: 3.0, ease: [0.25, 1, 0.4, 1] }}
+        style={isMobile ? {} : { transformOrigin: 'right', transformStyle: 'preserve-3d' }}
       >
         {/* FRONT FACE (Inside of brochure) */}
         <div style={{ backfaceVisibility: 'hidden', width: '100%', height: '100%', position: 'relative', display: 'flex', flexDirection: 'column' }}>
@@ -48,31 +59,33 @@ export default function Spread1() {
             
             <div className="contact-info">
               <p>Reserve your seat:</p>
-              <p>ankita.nair@lukecoutinho.com</p>
+              <p><a href="mailto:ankita.nair@lukecoutinho.com" className="email-link">ankita.nair@lukecoutinho.com</a></p>
               <p>+91 98218 51920</p>
-              <p style={{ marginTop: '10px' }}>clive@lukecoutinho.com</p>
+              <p style={{ marginTop: '10px' }}><a href="mailto:clive@lukecoutinho.com" className="email-link">clive@lukecoutinho.com</a></p>
               <p>+91 90498 84135</p>
             </div>
           </div>
         </div>
 
         {/* BACK FACE (Outside Cover) */}
-        <div style={{ 
-          backfaceVisibility: 'hidden', 
-          transform: 'rotateY(180deg)', 
-          position: 'absolute', 
-          inset: 0, 
-          backgroundColor: '#111111',
-          boxShadow: 'inset -30px 0 60px rgba(0,0,0,0.8), 20px 20px 50px rgba(0,0,0,0.5)',
-          borderRight: '1px solid #333'
-        }}>
-           <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '100%', padding: '40px', textAlign: 'center' }}>
-             <h2 style={{ color: '#fff', fontSize: '3rem', fontFamily: 'Montserrat', fontWeight: 800 }}>FIND YOUR<br/>RHYTHM</h2>
-             <p style={{ color: '#ccc', marginTop: '20px', letterSpacing: '2px', textTransform: 'uppercase', fontSize: '0.9rem' }}>Level 1 Certification</p>
-             <div style={{ width: '40px', height: '2px', backgroundColor: '#fff', marginTop: '30px' }}></div>
-             <p style={{ color: '#888', marginTop: '30px', fontSize: '0.9rem', fontStyle: 'italic' }}>With Luke Coutinho</p>
-           </div>
-        </div>
+        {!isMobile && (
+          <div style={{ 
+            backfaceVisibility: 'hidden', 
+            transform: 'rotateY(180deg)', 
+            position: 'absolute', 
+            inset: 0, 
+            backgroundColor: '#111111',
+            boxShadow: 'inset -30px 0 60px rgba(0,0,0,0.8), 20px 20px 50px rgba(0,0,0,0.5)',
+            borderRight: '1px solid #333'
+          }}>
+             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '100%', padding: '40px', textAlign: 'center' }}>
+               <h2 style={{ color: '#fff', fontSize: '3rem', fontFamily: 'Montserrat', fontWeight: 800 }}>FIND YOUR<br/>RHYTHM</h2>
+               <p style={{ color: '#ccc', marginTop: '20px', letterSpacing: '2px', textTransform: 'uppercase', fontSize: '0.9rem' }}>Level 1 Certification</p>
+               <div style={{ width: '40px', height: '2px', backgroundColor: '#fff', marginTop: '30px' }}></div>
+               <p style={{ color: '#888', marginTop: '30px', fontSize: '0.9rem', fontStyle: 'italic' }}>With Luke Coutinho</p>
+             </div>
+          </div>
+        )}
       </motion.div>
 
       {/* COLUMN 2 (Middle - Light Grey) */}
@@ -117,10 +130,10 @@ export default function Spread1() {
       {/* COLUMN 3 (Right - Light Grey - Folds UNDER Left, OVER Middle) */}
       <motion.div 
         className="col col-right"
-        initial={{ rotateY: -179.9, zIndex: 20 }}
-        animate={{ rotateY: 0, transitionEnd: { zIndex: 1 } }}
-        transition={{ duration: 1.5, delay: 3.6, ease: [0.25, 1, 0.4, 1] }}
-        style={{ transformOrigin: 'left', transformStyle: 'preserve-3d', padding: 0 }}
+        initial={isMobile ? { rotateY: 0, zIndex: 1 } : { rotateY: -179.9, zIndex: 20 }}
+        animate={isMobile ? { rotateY: 0 } : { rotateY: 0, transitionEnd: { zIndex: 1 } }}
+        transition={isMobile ? { duration: 0 } : { duration: 1.5, delay: 3.6, ease: [0.25, 1, 0.4, 1] }}
+        style={isMobile ? { padding: 0 } : { transformOrigin: 'left', transformStyle: 'preserve-3d', padding: 0 }}
       >
         {/* FRONT FACE (Inside flap) */}
         <div style={{ backfaceVisibility: 'hidden', width: '100%', height: '100%', position: 'relative', padding: '40px', display: 'flex', flexDirection: 'column' }}>

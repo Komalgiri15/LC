@@ -46,6 +46,36 @@ h1, h2, h3, h4, .font-heading {
   .brochure-container {
     grid-template-columns: 1fr;
   }
+  .title-huge {
+    font-size: 2.5rem;
+  }
+  .title-main {
+    font-size: 2rem;
+  }
+  .col-right {
+    padding-bottom: 250px;
+    align-items: center;
+    text-align: center;
+  }
+  .col-right .text-body {
+    text-align: center;
+    max-width: 100%;
+  }
+  .img-bottom-slant {
+    height: 250px;
+  }
+  .circle-quote {
+    position: relative;
+    bottom: auto;
+    left: auto;
+    transform: none;
+    margin: 40px auto 0 auto;
+    width: 280px;
+    height: 280px;
+  }
+  .text-center {
+    padding-bottom: 0 !important;
+  }
 }
 
 /* Columns */
@@ -146,6 +176,47 @@ h1, h2, h3, h4, .font-heading {
   font-size: 0.8rem;
   line-height: 1.5;
   color: #aaa;
+}
+
+.email-link {
+  color: inherit;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.email-link:hover {
+  color: var(--white);
+}
+
+.email-link::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 1px;
+  bottom: 0;
+  left: 0;
+  background-color: currentColor;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.email-link:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+.email-link-dark {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-color: transparent;
+  transition: all 0.2s ease;
+}
+
+.email-link-dark:hover {
+  text-decoration-color: var(--black);
 }
 
 /* Circle Element */

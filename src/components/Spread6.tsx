@@ -86,11 +86,15 @@ export default function Spread6() {
         <motion.div variants={staggerContainer} style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' }}>
           <motion.div variants={flipIn}>
             <p className="section-label" style={{ color: 'var(--black)', fontWeight: 'bold' }}>Reserve Your Seat</p>
-            <p className="text-body" style={{ marginBottom: '5px', fontWeight: 600 }}>ankita.nair@lukecoutinho.com</p>
+            <p className="text-body" style={{ marginBottom: '5px', fontWeight: 600 }}>
+              <a href="mailto:ankita.nair@lukecoutinho.com" className="email-link-dark">ankita.nair@lukecoutinho.com</a>
+            </p>
             <p className="text-body" style={{ color: 'var(--dark-grey)' }}>+91 98218 51920</p>
           </motion.div>
           <motion.div variants={flipIn} style={{ paddingTop: '28px' }}>
-            <p className="text-body" style={{ marginBottom: '5px', fontWeight: 600 }}>clive@lukecoutinho.com</p>
+            <p className="text-body" style={{ marginBottom: '5px', fontWeight: 600 }}>
+              <a href="mailto:clive@lukecoutinho.com" className="email-link-dark">clive@lukecoutinho.com</a>
+            </p>
             <p className="text-body" style={{ color: 'var(--dark-grey)' }}>+91 90498 84135</p>
           </motion.div>
         </motion.div>
