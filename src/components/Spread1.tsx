@@ -76,12 +76,20 @@ export default function Spread1() {
             inset: 0, 
             backgroundColor: '#111111',
             boxShadow: 'inset -30px 0 60px rgba(0,0,0,0.8), 20px 20px 50px rgba(0,0,0,0.5)',
-            borderRight: '1px solid #333'
+            borderRight: '1px solid #333',
+            display: 'flex',
+            flexDirection: 'column',
+            overflow: 'hidden'
           }}>
-             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '100%', padding: '40px', textAlign: 'center' }}>
-               <h2 style={{ color: '#fff', fontSize: '3rem', fontFamily: 'Montserrat', fontWeight: 800 }}>FIND YOUR<br/>RHYTHM</h2>
-               <p style={{ color: '#ccc', marginTop: '20px', letterSpacing: '2px', textTransform: 'uppercase', fontSize: '0.9rem' }}>Level 1 Certification</p>
-               <div style={{ width: '40px', height: '2px', backgroundColor: '#fff', marginTop: '30px' }}></div>
+             <div style={{ position: 'relative', width: '100%', height: '350px' }}>
+                <img src="/cover-banner.png" alt="Cover Banner" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                <div style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'flex-end', justifyContent: 'center', paddingBottom: '20px', background: 'linear-gradient(to bottom, rgba(17,17,17,0) 0%, rgba(17,17,17,1) 100%)' }}>
+                   <h2 style={{ color: '#fff', fontSize: '3rem', fontFamily: 'Montserrat', fontWeight: 800, textAlign: 'center', lineHeight: 1.1, textShadow: '0 4px 20px rgba(0,0,0,0.8)' }}>FIND YOUR<br/>RHYTHM</h2>
+                </div>
+             </div>
+             <div style={{ padding: '0 40px', textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+               <p style={{ color: '#ccc', marginTop: '10px', letterSpacing: '2px', textTransform: 'uppercase', fontSize: '0.9rem' }}>Level 1 Certification</p>
+               <div style={{ width: '40px', height: '2px', backgroundColor: '#fff', marginTop: '30px', opacity: 0.5 }}></div>
                <p style={{ color: '#888', marginTop: '30px', fontSize: '0.9rem', fontStyle: 'italic' }}>With Luke Coutinho</p>
              </div>
           </div>
