@@ -6,55 +6,73 @@ export default function Spread1() {
   return (
     <motion.div 
       className="brochure-container"
-      initial={{ y: '10vh', opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 1, ease: "easeOut" }}
+      initial={{ y: '15vh', opacity: 0, rotateX: 20 }}
+      animate={{ y: 0, opacity: 1, rotateX: 0 }}
+      transition={{ duration: 1.5, ease: [0.22, 1, 0.36, 1] }}
     >
-      {/* COLUMN 1 (Left - Black) */}
+      {/* COLUMN 1 (Left - Black - Folds OVER Right) */}
       <motion.div 
         className="col col-black"
-        initial={{ rotateY: 90, transformOrigin: 'right', filter: 'brightness(0)', zIndex: 10 }}
-        animate={{ rotateY: 0, filter: 'brightness(1)', transitionEnd: { zIndex: 1 } }}
-        transition={{ duration: 1.2, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-        style={{ backfaceVisibility: 'hidden' }}
+        initial={{ rotateY: 175, zIndex: 30 }}
+        animate={{ rotateY: 0, transitionEnd: { zIndex: 1 } }}
+        transition={{ duration: 1.6, delay: 0.2, ease: [0.25, 1, 0.4, 1] }}
+        style={{ transformOrigin: 'right', transformStyle: 'preserve-3d' }}
       >
-        <img 
-          src="/top-img.png" 
-          alt="Health Abstract" 
-          className="img-top-curve" 
-        />
-        
-        <div className="col-black-content">
-          <h1 className="title-main font-heading">FIND YOUR<br/>RHYTHM</h1>
-          <p className="subtitle font-heading">LEVEL 1 CERTIFICATION</p>
+        {/* FRONT FACE (Inside of brochure) */}
+        <div style={{ backfaceVisibility: 'hidden', width: '100%', height: '100%', position: 'relative', display: 'flex', flexDirection: 'column' }}>
+          <img 
+            src="/top-img.png" 
+            alt="Health Abstract" 
+            className="img-top-curve" 
+          />
           
-          <p className="text-body">
-            Level 1 Certification in Foundational Medicine with Luke Coutinho. 
-            Join us in person to understand the foundations that shape human health.
-          </p>
-          
-          <p className="text-body" style={{ marginTop: '20px' }}>
-            <strong>Taj Lands End, Mumbai</strong><br />
-            Saturday, September 26, 2026<br />
-            9:00 AM IST onwards
-          </p>
-          
-          <div className="contact-info">
-            <p>Reserve your seat:</p>
-            <p>ankita.nair@lukecoutinho.com</p>
-            <p>+91 98218 51920</p>
-            <p style={{ marginTop: '10px' }}>clive@lukecoutinho.com</p>
-            <p>+91 90498 84135</p>
+          <div className="col-black-content">
+            <h1 className="title-main font-heading">FIND YOUR<br/>RHYTHM</h1>
+            <p className="subtitle font-heading">LEVEL 1 CERTIFICATION</p>
+            
+            <p className="text-body">
+              Level 1 Certification in Foundational Medicine with Luke Coutinho. 
+              Join us in person to understand the foundations that shape human health.
+            </p>
+            
+            <p className="text-body" style={{ marginTop: '20px' }}>
+              <strong>Taj Lands End, Mumbai</strong><br />
+              Saturday, September 26, 2026<br />
+              9:00 AM IST onwards
+            </p>
+            
+            <div className="contact-info">
+              <p>Reserve your seat:</p>
+              <p>ankita.nair@lukecoutinho.com</p>
+              <p>+91 98218 51920</p>
+              <p style={{ marginTop: '10px' }}>clive@lukecoutinho.com</p>
+              <p>+91 90498 84135</p>
+            </div>
           </div>
+        </div>
+
+        {/* BACK FACE (Outside Cover) */}
+        <div style={{ 
+          backfaceVisibility: 'hidden', 
+          transform: 'rotateY(180deg)', 
+          position: 'absolute', 
+          inset: 0, 
+          backgroundColor: '#111111',
+          boxShadow: 'inset -30px 0 60px rgba(0,0,0,0.8)',
+          borderRight: '1px solid #333'
+        }}>
+           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100%', overflow: 'hidden' }}>
+             <h2 style={{ color: '#fff', opacity: 0.05, transform: 'rotate(-90deg)', fontSize: '5rem', whiteSpace: 'nowrap', fontFamily: 'Montserrat', fontWeight: 800 }}>FIND YOUR RHYTHM</h2>
+           </div>
         </div>
       </motion.div>
 
       {/* COLUMN 2 (Middle - Light Grey) */}
       <motion.div 
         className="col"
-        initial={{ filter: 'brightness(0)', zIndex: 5 }}
+        initial={{ filter: 'brightness(0.2)', zIndex: 5 }}
         animate={{ filter: 'brightness(1)' }}
-        transition={{ duration: 1.2, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+        transition={{ duration: 1.5, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
       >
         <svg 
           className="shape-blob" 
@@ -88,38 +106,53 @@ export default function Spread1() {
         </div>
       </motion.div>
 
-      {/* COLUMN 3 (Right - Light Grey) */}
+      {/* COLUMN 3 (Right - Light Grey - Folds UNDER Left, OVER Middle) */}
       <motion.div 
         className="col col-right"
-        initial={{ rotateY: -90, transformOrigin: 'left', filter: 'brightness(0)', zIndex: 10 }}
-        animate={{ rotateY: 0, filter: 'brightness(1)', transitionEnd: { zIndex: 1 } }}
-        transition={{ duration: 1.2, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-        style={{ backfaceVisibility: 'hidden' }}
+        initial={{ rotateY: -175, zIndex: 20 }}
+        animate={{ rotateY: 0, transitionEnd: { zIndex: 1 } }}
+        transition={{ duration: 1.5, delay: 0.8, ease: [0.25, 1, 0.4, 1] }}
+        style={{ transformOrigin: 'left', transformStyle: 'preserve-3d', padding: 0 }}
       >
-        <div style={{ width: '100%' }}>
-          <div className="icon-circle">
-            <Activity size={32} />
+        {/* FRONT FACE (Inside flap) */}
+        <div style={{ backfaceVisibility: 'hidden', width: '100%', height: '100%', position: 'relative', padding: '40px', display: 'flex', flexDirection: 'column' }}>
+          <div style={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'flex-end', textAlign: 'right' }}>
+            <div className="icon-circle">
+              <Activity size={32} />
+            </div>
+            
+            <h1 className="title-huge font-heading" style={{ fontSize: '2.5rem', marginTop: '100px' }}>FOUNDATIONAL</h1>
+            <p className="subtitle-huge font-heading">MEDICINE</p>
+            
+            <div className="divider-line"></div>
+            
+            <p className="text-body" style={{ marginTop: '20px', textAlign: 'right' }}>
+              <strong>Why Now?</strong><br/><br/>
+              Healthcare has never had more answers. Yet chronic disease continues to rise.
+            </p>
+            <p className="text-body" style={{ textAlign: 'right' }}>
+              The future of health may not depend on discovering more. It may depend on connecting what we've already learned.
+            </p>
           </div>
           
-          <h1 className="title-huge font-heading" style={{ fontSize: '2.5rem' }}>FOUNDATIONAL</h1>
-          <p className="subtitle-huge font-heading">MEDICINE</p>
-          
-          <div className="divider-line"></div>
-          
-          <p className="text-body" style={{ marginTop: '20px' }}>
-            <strong>Why Now?</strong><br/><br/>
-            Healthcare has never had more answers. Yet chronic disease continues to rise.
-          </p>
-          <p className="text-body">
-            The future of health may not depend on discovering more. It may depend on connecting what we've already learned.
-          </p>
+          <img 
+            src="/bottom-img.png" 
+            alt="Rhythm Background" 
+            className="img-bottom-slant" 
+          />
         </div>
-        
-        <img 
-          src="/bottom-img.png" 
-          alt="Rhythm Background" 
-          className="img-bottom-slant" 
-        />
+
+        {/* BACK FACE (Inside Flap Backwards) */}
+        <div style={{ 
+          backfaceVisibility: 'hidden', 
+          transform: 'rotateY(180deg)', 
+          position: 'absolute', 
+          inset: 0, 
+          backgroundColor: '#e0e0e0',
+          boxShadow: 'inset 30px 0 60px rgba(0,0,0,0.15)',
+          borderLeft: '1px solid #ccc'
+        }}>
+        </div>
       </motion.div>
     </motion.div>
   );
