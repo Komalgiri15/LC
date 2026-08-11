@@ -6,7 +6,7 @@ export default function Spread1() {
   return (
     <motion.div 
       className="brochure-container"
-      initial={{ y: '15vh', opacity: 0, rotateX: 20, backgroundColor: 'transparent', boxShadow: 'none' }}
+      initial={{ y: '15vh', opacity: 0, rotateX: 20, backgroundColor: '#222222', boxShadow: 'none' }}
       animate={{ y: 0, opacity: 1, rotateX: 0, backgroundColor: '#E5E5E5', boxShadow: '0 20px 40px rgba(0, 0, 0, 0.4)' }}
       transition={{ 
         duration: 1.5, 
@@ -18,7 +18,7 @@ export default function Spread1() {
       {/* COLUMN 1 (Left - Black - Folds OVER Right) */}
       <motion.div 
         className="col col-black"
-        initial={{ rotateY: 175, zIndex: 30 }}
+        initial={{ rotateY: 179.9, zIndex: 30 }}
         animate={{ rotateY: 0, transitionEnd: { zIndex: 1 } }}
         transition={{ duration: 1.6, delay: 3.0, ease: [0.25, 1, 0.4, 1] }}
         style={{ transformOrigin: 'right', transformStyle: 'preserve-3d' }}
@@ -117,7 +117,7 @@ export default function Spread1() {
       {/* COLUMN 3 (Right - Light Grey - Folds UNDER Left, OVER Middle) */}
       <motion.div 
         className="col col-right"
-        initial={{ rotateY: -175, zIndex: 20 }}
+        initial={{ rotateY: -179.9, zIndex: 20 }}
         animate={{ rotateY: 0, transitionEnd: { zIndex: 1 } }}
         transition={{ duration: 1.5, delay: 3.6, ease: [0.25, 1, 0.4, 1] }}
         style={{ transformOrigin: 'left', transformStyle: 'preserve-3d', padding: 0 }}
