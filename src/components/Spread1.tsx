@@ -6,16 +6,21 @@ export default function Spread1() {
   return (
     <motion.div 
       className="brochure-container"
-      initial={{ y: '15vh', opacity: 0, rotateX: 20 }}
-      animate={{ y: 0, opacity: 1, rotateX: 0 }}
-      transition={{ duration: 1.5, ease: [0.22, 1, 0.36, 1] }}
+      initial={{ y: '15vh', opacity: 0, rotateX: 20, backgroundColor: 'transparent', boxShadow: 'none' }}
+      animate={{ y: 0, opacity: 1, rotateX: 0, backgroundColor: '#E5E5E5', boxShadow: '0 20px 40px rgba(0, 0, 0, 0.4)' }}
+      transition={{ 
+        duration: 1.5, 
+        ease: [0.22, 1, 0.36, 1],
+        backgroundColor: { delay: 3.0, duration: 0.8 },
+        boxShadow: { delay: 3.0, duration: 0.8 }
+      }}
     >
       {/* COLUMN 1 (Left - Black - Folds OVER Right) */}
       <motion.div 
         className="col col-black"
         initial={{ rotateY: 175, zIndex: 30 }}
         animate={{ rotateY: 0, transitionEnd: { zIndex: 1 } }}
-        transition={{ duration: 1.6, delay: 0.2, ease: [0.25, 1, 0.4, 1] }}
+        transition={{ duration: 1.6, delay: 3.0, ease: [0.25, 1, 0.4, 1] }}
         style={{ transformOrigin: 'right', transformStyle: 'preserve-3d' }}
       >
         {/* FRONT FACE (Inside of brochure) */}
@@ -58,11 +63,14 @@ export default function Spread1() {
           position: 'absolute', 
           inset: 0, 
           backgroundColor: '#111111',
-          boxShadow: 'inset -30px 0 60px rgba(0,0,0,0.8)',
+          boxShadow: 'inset -30px 0 60px rgba(0,0,0,0.8), 20px 20px 50px rgba(0,0,0,0.5)',
           borderRight: '1px solid #333'
         }}>
-           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100%', overflow: 'hidden' }}>
-             <h2 style={{ color: '#fff', opacity: 0.05, transform: 'rotate(-90deg)', fontSize: '5rem', whiteSpace: 'nowrap', fontFamily: 'Montserrat', fontWeight: 800 }}>FIND YOUR RHYTHM</h2>
+           <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '100%', padding: '40px', textAlign: 'center' }}>
+             <h2 style={{ color: '#fff', fontSize: '3rem', fontFamily: 'Montserrat', fontWeight: 800 }}>FIND YOUR<br/>RHYTHM</h2>
+             <p style={{ color: '#ccc', marginTop: '20px', letterSpacing: '2px', textTransform: 'uppercase', fontSize: '0.9rem' }}>Level 1 Certification</p>
+             <div style={{ width: '40px', height: '2px', backgroundColor: '#fff', marginTop: '30px' }}></div>
+             <p style={{ color: '#888', marginTop: '30px', fontSize: '0.9rem', fontStyle: 'italic' }}>With Luke Coutinho</p>
            </div>
         </div>
       </motion.div>
@@ -72,7 +80,7 @@ export default function Spread1() {
         className="col"
         initial={{ filter: 'brightness(0.2)', zIndex: 5 }}
         animate={{ filter: 'brightness(1)' }}
-        transition={{ duration: 1.5, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
+        transition={{ duration: 1.5, delay: 3.6, ease: [0.22, 1, 0.36, 1] }}
       >
         <svg 
           className="shape-blob" 
@@ -111,7 +119,7 @@ export default function Spread1() {
         className="col col-right"
         initial={{ rotateY: -175, zIndex: 20 }}
         animate={{ rotateY: 0, transitionEnd: { zIndex: 1 } }}
-        transition={{ duration: 1.5, delay: 0.8, ease: [0.25, 1, 0.4, 1] }}
+        transition={{ duration: 1.5, delay: 3.6, ease: [0.25, 1, 0.4, 1] }}
         style={{ transformOrigin: 'left', transformStyle: 'preserve-3d', padding: 0 }}
       >
         {/* FRONT FACE (Inside flap) */}
