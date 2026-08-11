@@ -18,14 +18,25 @@ const staggerContainer = {
 
 export default function Spread1() {
   return (
-    <div className="brochure-container">
+    <motion.div 
+      className="brochure-container"
+      initial={{ y: '30vh', opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 1.2, ease: "easeOut" }}
+    >
       {/* COLUMN 1 (Left - Black) */}
-      <div className="col col-black">
+      <motion.div 
+        className="col col-black"
+        initial={{ rotateY: 110, transformOrigin: 'right', opacity: 0.3 }}
+        animate={{ rotateY: 0, opacity: 1 }}
+        transition={{ duration: 1.8, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
+        style={{ zIndex: 10 }}
+      >
         <motion.img 
           initial={{ opacity: 0 }} 
           whileInView={{ opacity: 1 }} 
           viewport={{ once: true }} 
-          transition={{ duration: 1.5 }}
+          transition={{ duration: 1.5, delay: 1 }}
           src="/top-img.png" 
           alt="Health Abstract" 
           className="img-top-curve" 
@@ -60,10 +71,15 @@ export default function Spread1() {
             <p>+91 90498 84135</p>
           </motion.div>
         </motion.div>
-      </div>
+      </motion.div>
 
       {/* COLUMN 2 (Middle - Light Grey) */}
-      <div className="col">
+      <motion.div 
+        className="col"
+        initial={{ opacity: 0, scale: 0.95 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 1.2, delay: 0.6, ease: "easeOut" }}
+      >
         <motion.svg 
           initial={{ scale: 0.8, opacity: 0 }}
           whileInView={{ scale: 1, opacity: 1 }}
@@ -104,50 +120,57 @@ export default function Spread1() {
           initial={{ opacity: 0, scale: 0.9, rotateX: 45 }}
           whileInView={{ opacity: 1, scale: 1, rotateX: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.4 }}
+          transition={{ duration: 0.6, delay: 1 }}
           className="circle-quote"
         >
           <span className="quote-mark">“</span>
           <p className="font-heading" style={{ fontSize: '1.2rem', marginBottom: '10px' }}>FOUNDATIONS.</p>
           <p>Because when the foundations improve, everything built upon them improves too.</p>
         </motion.div>
-      </div>
+      </motion.div>
 
       {/* COLUMN 3 (Right - Light Grey) */}
       <motion.div 
         className="col col-right"
-        variants={staggerContainer}
-        initial="initial"
-        whileInView="whileInView"
-        viewport={{ once: true, margin: "-50px" }}
+        initial={{ rotateY: -110, transformOrigin: 'left', opacity: 0.3 }}
+        animate={{ rotateY: 0, opacity: 1 }}
+        transition={{ duration: 1.8, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
+        style={{ zIndex: 10 }}
       >
-        <motion.div variants={flipIn} className="icon-circle">
-          <Activity size={32} />
+        <motion.div 
+          variants={staggerContainer}
+          initial="initial"
+          whileInView="whileInView"
+          viewport={{ once: true, margin: "-50px" }}
+          style={{ width: '100%' }}
+        >
+          <motion.div variants={flipIn} className="icon-circle">
+            <Activity size={32} />
+          </motion.div>
+          
+          <motion.h1 variants={flipIn} className="title-huge font-heading" style={{ fontSize: '2.5rem' }}>FOUNDATIONAL</motion.h1>
+          <motion.p variants={flipIn} className="subtitle-huge font-heading">MEDICINE</motion.p>
+          
+          <motion.div variants={flipIn} className="divider-line"></motion.div>
+          
+          <motion.p variants={flipIn} className="text-body" style={{ marginTop: '20px' }}>
+            <strong>Why Now?</strong><br/><br/>
+            Healthcare has never had more answers. Yet chronic disease continues to rise.
+          </motion.p>
+          <motion.p variants={flipIn} className="text-body">
+            The future of health may not depend on discovering more. It may depend on connecting what we've already learned.
+          </motion.p>
         </motion.div>
-        
-        {/* Fixed Title on one line */}
-        <motion.h1 variants={flipIn} className="title-huge font-heading" style={{ fontSize: '2.5rem' }}>FOUNDATIONAL</motion.h1>
-        <motion.p variants={flipIn} className="subtitle-huge font-heading">MEDICINE</motion.p>
-        
-        <motion.div variants={flipIn} className="divider-line"></motion.div>
-        
-        <motion.p variants={flipIn} className="text-body" style={{ marginTop: '20px' }}>
-          <strong>Why Now?</strong><br/><br/>
-          Healthcare has never had more answers. Yet chronic disease continues to rise.
-        </motion.p>
-        <motion.p variants={flipIn} className="text-body">
-          The future of health may not depend on discovering more. It may depend on connecting what we've already learned.
-        </motion.p>
         
         <motion.img 
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          transition={{ duration: 1.5, delay: 0.5 }}
+          transition={{ duration: 1.5, delay: 1 }}
           src="/bottom-img.png" 
           alt="Rhythm Background" 
           className="img-bottom-slant" 
         />
       </motion.div>
-    </div>
+    </motion.div>
   );
 }

@@ -38,8 +38,8 @@ h1, h2, h3, h4, .font-heading {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-  overflow: hidden;
   position: relative;
+  perspective: 2500px;
 }
 
 @media (max-width: 900px) {
@@ -54,6 +54,7 @@ h1, h2, h3, h4, .font-heading {
   position: relative;
   display: flex;
   flex-direction: column;
+  transform-style: preserve-3d;
 }
 
 /* Column 1 - Black */
